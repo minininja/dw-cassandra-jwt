@@ -1,0 +1,5 @@
+cassandra:
+  clusterName: "minimal-cluster"
+  contactPoints: ["10.211.54.10"]
+
+jwtKey: testtesttesttest
