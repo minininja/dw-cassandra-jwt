@@ -2,6 +2,7 @@ package org.dorkmaster.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import org.stuartgunter.dropwizard.cassandra.CassandraFactory;
 
 import javax.validation.Valid;
@@ -33,6 +34,9 @@ public class AuthConfiguration extends Configuration {
     public void setCassandraFactory(CassandraFactory cassandra) {
         this.cassandra = cassandra;
     }
+
+    @JsonProperty("swagger")
+    public SwaggerBundleConfiguration swaggerBundleConfiguration;
 
     @JsonProperty("jwtKey")
     public AuthConfiguration setJwtKey(String jwtKey) {

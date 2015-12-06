@@ -21,20 +21,23 @@ public class UserDao {
         this.cassandra = cassandra;
     }
 
-    public User findByUsernameAndPassword(String username, String password) {
+    public User findByUsername(String username) {
         Session session = null;
         PreparedStatement ps;
         try {
             session = cassandra.connect();
 
             Mapper<User> mapper = new MappingManager(session).mapper(User.class);
-            User user = mapper.get(username);
-            if (user != null && user.getPassword().equals(password)) {
-                return user;
-            }
-
+            return mapper.get(username);
         } finally {
             session.close();
+        }
+    }
+
+    public User findByUsernameAndPassword(String username, String password) {
+        User user = findByUsername(username);
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
         }
         return null;
     }

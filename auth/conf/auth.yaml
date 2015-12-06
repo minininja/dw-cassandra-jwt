@@ -3,3 +3,17 @@ cassandra:
   contactPoints: ["10.211.54.10"]
 
 jwtKey: testtesttesttest
+
+swagger:
+  resourcePackage: org.dorkmaster.auth.api
+
+#logging:
+#  level: INFO
+#  loggers:
+#    com.wordnik: TRACE
+#  appenders:
+#    - type: console
+#      threshold: ALL
+#      timeZone: UTC
+#      target: stdout
+#      logFormat: # TODO
